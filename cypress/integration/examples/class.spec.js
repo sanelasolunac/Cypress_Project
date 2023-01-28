@@ -19,9 +19,30 @@ class HomePage extends BasePage {
 }
 
 describe('Abstraction With Classes', () => {
+	before(function () {
+		// runs before all tests inside describe
+		// setup test data or test context
+		// seed or reset the database
+		HomePage.loadHomePage()
+	})
+
+	after(function () {
+		// runs after all tests inside describe block are done
+		// test clean up
+		// clean cookies or LocalStorage
+	})
+
+	beforeEach(function () {
+		// runs before each it blocks in the describe
+		// if you have 5 it, it will run 5 times before each it
+	})
+
+	afterEach(function () {
+		// runs after each it block in the describe
+	})
+
 	it('should scroll down and up on the page', () => {
 		// homePage inherits a BasePage, so we can call functions from BasePage
-		HomePage.loadHomePage()
 		HomePage.scrollToBottom()
 		HomePage.wait(5000)
 		HomePage.scrollToTop()
